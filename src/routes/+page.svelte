@@ -1,8 +1,2 @@
-<main id="main-container">
-    <div id="cont-name">
-        Apoorav Medal
-    </div>
-    <div id="cont-pageinfo">
-        This page is under construction. 👷‍♂️
-    </div>
-</main>
+<h1>Welcome to SvelteKit</h1>
+<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
