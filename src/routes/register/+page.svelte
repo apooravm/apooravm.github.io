@@ -2,6 +2,11 @@
 	let reqStatus: number = 0;
 	let reqStatusStr = '';
 
+	type ServerResponse = {
+		code: string;
+		message: string;
+	};
+
 	const submitForm = () => {
 		const formElm = document.getElementById('registerForm') as HTMLFormElement;
 		const formData: FormData = new FormData(formElm);
@@ -13,7 +18,7 @@
 		};
 
 		if (!payload.username || !payload.email || !payload.password) {
-			return
+			return;
 		}
 
 		fetch('https://multi-serve.onrender.com/api/user/register', {
@@ -23,9 +28,9 @@
 				'Content-Type': 'application/json'
 			}
 		})
-			.then((res) => {
-				res.json().then((obj) => {
-					reqStatus = obj.code;
+			.then((res): void => {
+				res.json().then((obj: ServerResponse) => {
+					reqStatus = res.status;
 					reqStatusStr = obj.message;
 				});
 			})
@@ -63,7 +68,7 @@
 				placeholder="password"
 				required
 			/>
-			<button class="btn" type="submit" on:click={submitForm}>Register</button>
+			<button class="btn" type="button" on:click={submitForm}>Register</button>
 		</form>
 	</div>
 {/if}
@@ -75,26 +80,17 @@
 	</div>
 {/if}
 
-{#if reqStatus == 409}
+{#if reqStatus >= 400}
 	<div class="form-container">
 		<h1>Something went wrong! 😓</h1>
-		<div class="res-text">{reqStatusStr}</div>
-	</div>
-{/if}
 
-{#if reqStatus >= 400 && reqStatus != 409 && reqStatus <= 500}
-	<div class="form-container">
-		<h1>Something went wrong! 😓</h1>
-		<div class="res-text">
-			{reqStatusStr}
-		</div>
-	</div>
-{/if}
+		{#if reqStatus < 500}
+			<div class="res-text">{reqStatusStr}</div>
+		{/if}
 
-{#if reqStatus >= 500}
-	<div class="form-container">
-		<h1>Something went wrong! 😓</h1>
-		<div class="res-text">Server is Offline</div>
+		{#if reqStatus >= 500}
+			<div class="res-text">Server is Offline</div>
+		{/if}
 	</div>
 {/if}
 
