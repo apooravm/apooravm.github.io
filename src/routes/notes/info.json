@@ -1,0 +1,14 @@
+{
+	"notes": [
+		{
+			"date": "2023-11-04",
+			"description": "Been really interested in computer graphics and ThreeJS provides a way to run openGL in the web or webGL. Both React and Svelte offer wrappers over the main ThreeJS library.",
+			"id": 1,
+			"slug": "001_threejs-in-react-three-fiber-and-svelte-cubed",
+			"tags": ["ReactJS", "SvelteKit", "Svelte", "ThreeJS", "Svelte-Cubed"],
+			"time": "23:28:26",
+			"title": "ThreeJS in React-Three-Fiber and Svelte-Cubed",
+			"updated_date": ""
+		}
+	]
+}
