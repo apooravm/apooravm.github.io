@@ -5,7 +5,7 @@
     <div class="title-txt">
     </div>
     <div class="about-text">
-        Under construction 👷‍♂️
+        Work In Process 👷‍♂️
     </div>
 </div>
 
@@ -14,8 +14,11 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
 
-        padding-inline: 2rem;
+        font-family: monospace;
+
+        height: 100vh;
     }
     .title-txt {
         font-size: 200%;
@@ -23,6 +26,6 @@
 
     .about-text {
         font-size: 150%;
-        font-weight: 600;
+        font-weight: bold;
     }
 </style>

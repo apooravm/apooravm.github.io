@@ -2,6 +2,11 @@
 	import type { PageData } from '../$types';
 	import type { Note, NoteInfoResponse } from '$lib/utils';
 
+	const cleanTime = (timeStr: string) => {
+		let parts = timeStr.split(":");
+		return `${parts[0]}:${parts[1]}`
+	}
+
 	export let data: PageData;
 </script>
 
@@ -14,10 +19,10 @@
 				<div class="note-title">
 					{title}
 				</div>
-				<br>
 				<div class="note-datetime">
-					{date}, {time}
+					{cleanTime(time)}, {date}
 				</div>
+				<br>
 				<div class="note-desc">
 					{description}
 				</div>
@@ -74,10 +79,10 @@ vim.opt.autoread = true
 		border-radius: 8px;
 		box-shadow: 0 0 0px rgba(0, 0, 0, 0.1);
 
-		height: 100px;
-		width: 100%;
+		max-height: 40rem;
+		max-width: 50rem;
 
-		padding-block: 60px;
+		padding-block: 35px;
 		padding-inline: 40px;
 
 		font-size: 100%;
@@ -88,21 +93,22 @@ vim.opt.autoread = true
 	}
 
 	.note-title {
-		font-size: 190%;
+		font-size: 140%;
 		font-weight: 900;
 	}
 
 	.note-desc {
-		font-size: 110%;
+		font-size: 90%;
 		font-weight: lighter;
 	}
 
 	.note-datetime {
-		font-weight: 500;
+		font-weight: lighter;
+		font-size: 80%;
 	}
 
 	.note-link {
-		font-size: 100%;
+		font-size: 90%;
 		font-weight: lighter;
 
 		text-decoration: none;

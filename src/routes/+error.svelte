@@ -1,18 +1,18 @@
 <div class="error-container">
-    route not found 😥
+    404 | route not found 😥
 </div>
 
 
 <style>
     .error-container {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
 
         font-family: monospace;
-        font-size: 400%;
+        font-size: 350%;
 
-        height: 20rem;
+        height: 100vh;
     }
 </style>

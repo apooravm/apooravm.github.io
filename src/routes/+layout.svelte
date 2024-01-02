@@ -1,149 +1,206 @@
-<div id="app">
-	<nav>
-		<a class="navbar-link" href="/">home</a>
-		<a class="navbar-link" href="/notes">notes</a>
-		<a class="navbar-link" href="/webmap">webmap</a>
-		<a class="navbar-link" href="/cubed">cubed</a>
-		<a class="navbar-link" href="/register">register</a>
-		<a class="navbar-link" href="/chat">chat</a>
-	</nav>
+<script>
+	let hoverCount = 0;
+	let logo_text_all = "hey hows it going";
+	let logo_text_split = logo_text_all.split(" ");
+	let logo_text = "Heyo";
 
-	<main>
-		<slot />
-	</main>
+	const updateLogoText = () => {
+		hoverCount += 1;
+		if (hoverCount >= logo_text_split.length) {
+			hoverCount = 0;
+		}
+		logo_text = logo_text_split[hoverCount];
+		console.log(hoverCount)
+	}
+</script>
 
-	<footer>
-		<div class="footer-text">yo thanks for visiting 😪</div>
-	</footer>
+<div class="sidebar" role="presentation" on:mouseenter={updateLogoText} on:keypress={() => {}}>
+	<ul class="sidebar-nav">
+		<li class="sidebar-logo">
+			<a class="sidebar-link" id="sidebar-logo-link" href="/">
+				<img src="/sidebar-logo-lifebuoy.svg" alt="logo" srcset="" width="40rem" />
+				<span class="sidebar-link-text">{logo_text}</span>
+			</a>
+		</li>
+		<li class="sidebar-item">
+			<a class="sidebar-link" href="/notes">
+				<img src="/sidebar-file.svg" alt="chat" srcset="" width="40rem" />
+				<span class="sidebar-link-text">Notes</span>
+			</a>
+		</li>
+		<li class="sidebar-item">
+			<a class="sidebar-link" href="/cubed">
+				<img src="/sidebar-brush.svg" alt="chat" srcset="" width="40rem" />
+				<span class="sidebar-link-text">Cubed</span>
+			</a>
+		</li>
+		<li class="sidebar-item">
+			<a class="sidebar-link" href="/chat">
+				<img src="/sidebar-chat.svg" alt="chat" srcset="" width="40rem" />
+				<span class="sidebar-link-text">Chat</span>
+			</a>
+		</li>
+		<li class="sidebar-item">
+			<a class="sidebar-link" href="/resume">
+				<img src="/sidebar-resume.svg" alt="resume" srcset="" width="40rem" />
+				<span class="sidebar-link-text">Resume</span>
+			</a>
+		</li>
+		<li class="sidebar-item">
+			<a class="sidebar-link" href="/register">
+				<img src="/sidebar-user.svg" alt="home" srcset="" width="40rem" />
+				<span class="sidebar-link-text">User</span>
+			</a>
+		</li>
+	</ul>
+	<!-- 
+	<a class="navbar-link" href="/notes">notes</a>
+	<a class="navbar-link" href="/webmap">webmap</a>
+	<a class="navbar-link" href="/cubed">cubed</a>
+	<a class="navbar-link" href="/register">register</a>
+	<a class="navbar-link" href="/chat">chat</a> 
+	-->
 </div>
 
-<!-- <style>
-	:global(html),
-	:global(body) {
-	  height: 100%;
-	  margin: 0;
-	  padding: 0;
-	  font-family: 'monospace', sans-serif;
-	}
-  
-	#app {
-	  display: flex;
-	  flex-direction: column;
-	  min-height: 100vh;
-	}
-  
-	main {
-	  flex: 1;
-	}
-  
-	footer {
-	  margin-top: auto;
-	}
-  
-	/* Add any additional styling you need for your navbar, links, and footer-text here */
-	nav {
-	  background-color: #333;
-	  padding: 1rem;
-	  display: flex;
-	  justify-content: space-around;
-	  align-items: center;
-	}
-  
-	.navbar-link {
-	  color: white;
-	  text-decoration: none;
-	}
-  
-	.footer-text {
-	  text-align: center;
-	  padding: 1rem;
-	  background-color: #333;
-	  color: white;
-	}
-  </style> -->
-
-<!-- slot tells svelte that this is where to insert the children? -->
-<!-- layout wraps around any page further down the routes -->
-<!-- Thus, anything above <slot /> is treated like a global component -->
-<!-- Layout wraps a page and any subsequent pages -->
-<!-- Content above doesnt get rerendered when pages change -->
-<!-- If CSS is scoped and needed only in a certain file => write it in the same page file -->
-<!-- Else if needed as globally, write in routes/styles.css and import in routes/+layout.svelte -->
-
-<!-- lib dir -->
-<!-- lib is an alias special dir uner src/ that can be referenced from any file through $lib -->
-<!-- Can store any file/folders and have them be imported anywhere -->
-<!-- Can create your own aliases -->
-
-<!-- +page.ts/js => doing API related operations like fetching/loading data for +page.svelte -->
-<!--  -->
-
-<!-- <slot /> -->
-
-<!-- :global(body) {
-    background-color: #1b1b1b; /* Replace with your desired color */
-    margin: 0; /* Remove default body margin */
-} -->
+<div class="main-app">
+	<slot />
+</div>
 
 <style>
+	:root {
+		font-size: 20px;
+		font-family: monospace;
+		--text-primary: rgb(134, 134, 134);
+		--text-secondary: rgb(252, 252, 252);
+
+		--bg-primary: #23232e;
+		--bg-secondary: #141418;
+
+		--transition-speed: 300ms;
+		--transition-speed-slow: 100ms;
+	}
+
+	:global(body)::-webkit-scrollbar {
+		width: 0.25rem;
+	}
+
+	:global(body)::-webkit-scrollbar-thumb {
+		background-color: rgb(97, 37, 154);
+	}
+
+	:global(body)::-webkit-scrollbar-track {
+		background-color: #141418;
+	}
+
 	:global(html),
 	:global(body) {
 		height: 100%;
-		margin: 0;
+		margin: 0px;
+		padding: 0px;
+		font-family: 'monospace', sans-serif;
+	}
+
+	.main-app {
+		margin-left: 5rem;
+		/* padding-block: 1rem; */
+		padding-inline: 0rem;
+	}
+
+	.sidebar {
+		width: 5rem;
+		height: 100vh;
+		position: fixed;
+
+		overflow: hidden;
+
+		background-color: var(--bg-primary);
+		transition: width var(--transition-speed) ease;
+
+		z-index: 2;
+
+		font-family: monospace;
+	}
+
+	.sidebar-nav {
+		list-style: none;
 		padding: 0;
-		font-family: 'monospace', monospace;
-	}
-	nav {
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		gap: 10px;
-
-		padding-block: 20px;
-
-		border-bottom: 0px rgb(183, 255, 83) solid;
-	}
-
-	#app {
+		margin: 0;
 		display: flex;
 		flex-direction: column;
-		min-height: 100vh;
+		align-items: center;
+		height: 100%;
 	}
 
-	main {
-		flex: 1;
+	.sidebar-item {
+		width: 100%;
 	}
 
-	.navbar-link {
-		font-size: 180%;
-		font-weight: 550;
-		font-family: monospace;
+	.sidebar-item:last-child {
+		margin-top: auto;
+	}
 
-		text-align: center;
-
-		width: 100px;
+	.sidebar-link {
+		display: flex;
+		align-items: center;
+		height: 5rem;
+		color: var(--text-primary);
 
 		text-decoration: none;
-		color: rgb(169, 169, 169);
 
-		transition: all 1s;
+		filter: grayscale(100%) opacity(0.7);
 	}
 
-	.navbar-link:hover {
-		color: rgb(70, 70, 70);
-
-		transition: all 0.1s;
+	.sidebar-link:hover {
+		filter: grayscale(0%) opacity(1);
+		background: var(--bg-secondary);
+		color: var(--text-secondary);
 	}
 
-	footer {
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
+	.sidebar-link-text {
+		display: block;
+		/* margin-left: 1rem; */
+	}
 
-		margin-top: auto;
+	.sidebar-link img {
+		min-width: 2rem;
+		margin: 0 1.5rem;
+	}
 
-		border-top: 0.1px rgb(41, 41, 41) solid;
+	.sidebar:hover {
+		width: 12rem;
+		transition: var(--transition-speed);
+	}
 
-		padding-block: 40px;
+	.sidebar:hover .sidebar-link-text {
+		display: block;
+	}
+
+	.sidebar-logo {
+		font-weight: bold;
+		/* text-transform: uppercase; */
+		margin-bottom: 1rem;
+		text-align: center;
+		color: var(--text-secondary);
+
+		background: var(--bg-secondary);
+		font-size: 1.5rem;
+		letter-spacing: 0ch;
+
+		width: 100%;
+	}
+
+	.sidebar-logo img {
+		transform: rotate(0deg);
+		transition: transform var(--transition-speed);
+	}
+
+	.sidebar:hover .sidebar-logo img {
+		transform: rotate(-180deg);
+	}
+
+	.sidebar:hover #sidebar-logo-link {
+		filter: grayscale(0%) opacity(1);
+		background: var(--bg-secondary);
+		color: var(--text-secondary);
 	}
 </style>
