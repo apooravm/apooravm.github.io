@@ -97,11 +97,12 @@
 <style>
 	.form-container {
 		display: flex;
+		min-height: 100vh;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 
-		padding-block: 50px;
+		/* padding-block: 50px; */
 
 		font-family: monospace;
 	}
