@@ -1,7 +1,7 @@
 <div class="resume-container">
 	<iframe
 		id="resume-main"
-		src="https://multi-serve.onrender.com/api/resume/html"
+		src="https://apooravm.vercel.app/"
 		frameborder="0"
 		title="Resume"
 	/>
@@ -23,6 +23,10 @@
 	}
 
 	#resume-main::-webkit-scrollbar {
-		width: 0.1px;
+		overflow: hidden;
+	}
+
+	iframe {
+		overflow: hidden;
 	}
 </style>
