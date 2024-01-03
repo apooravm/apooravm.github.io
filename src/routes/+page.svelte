@@ -25,7 +25,7 @@
     }
 
     .about-text {
-        font-size: 150%;
-        font-weight: bold;
+        font-size: 110%;
+        font-weight: bolder;
     }
 </style>

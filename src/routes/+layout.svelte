@@ -2,7 +2,7 @@
 	import { browser } from "$app/environment";
 
 	let hoverCount = 0;
-	let logo_text_all = 'Hows it going';
+	let logo_text_all = 'Hey hows it going';
 	let logo_text_split = logo_text_all.split(' ');
 	let logo_text = 'Heyo';
 
@@ -33,11 +33,15 @@
 		for (const btn in btnMap) {
 			btnMap[btn] = "sidebar-link-img-inactive"
 		}
+		if (buttonKey == "home") {
+			return
+		}
 		btnMap[buttonKey] = "sidebar-link-img-active"
 	}
 
 	if (currentRoute != "") {
 		setActiveState(currentRoute);
+		console.log(currentRoute)
 	}
 
 </script>
@@ -46,7 +50,7 @@
 	<div class="sidebar" role="presentation" on:mouseenter={updateLogoText} on:keypress={() => {}}>
 		<ul class="sidebar-nav">
 			<li class="sidebar-logo">
-				<a class="sidebar-link" id="sidebar-logo-link" href="/">
+				<a class="sidebar-link" id="sidebar-logo-link" href="/" on:click={() => {setActiveState("home")}}>
 					<img src="/sidebar-logo-lifebuoy.svg" alt="logo" srcset="" width="40rem" />
 					<span class="sidebar-link-text">{logo_text}</span>
 				</a>
@@ -76,7 +80,7 @@
 				</a>
 			</li>
 			<li class="sidebar-item">
-				<a class="sidebar-link" href="/register" on:click={() => {setActiveState("user")}}>
+				<a class="sidebar-link" href="/register" on:click={() => {setActiveState("register")}}>
 					<img class={btnMap["register"]} src="/sidebar-user.svg" alt="home" srcset="" width="40rem" />
 					<span class="sidebar-link-text">User</span>
 				</a>

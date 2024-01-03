@@ -3,9 +3,9 @@
 	import type { Note, NoteInfoResponse } from '$lib/utils';
 
 	const cleanTime = (timeStr: string) => {
-		let parts = timeStr.split(":");
-		return `${parts[0]}:${parts[1]}`
-	}
+		let parts = timeStr.split(':');
+		return `${parts[0]}:${parts[1]}`;
+	};
 
 	export let data: PageData;
 </script>
@@ -22,13 +22,11 @@
 				<div class="note-datetime">
 					{cleanTime(time)}, {date}
 				</div>
-				<br>
+				<br />
 				<div class="note-desc">
 					{description}
 				</div>
-				<div class="note-link">
-					<a href={`https://multi-serve.onrender.com/api/notes/${slug}.md`}>Link Here</a>
-				</div>
+				<a class="note-link" href={`https://multi-serve.onrender.com/api/notes/${slug}.md`}>Link Here</a>
 			</div>
 		{/each}
 	{/await}
@@ -49,22 +47,6 @@ vim.opt.autoread = true
 		display: flex;
 		flex-direction: column;
 		justify-content: space-evenly;
-
-		padding-block: 50px;
-
-		padding-inline: 200px;
-		margin: auto;
-
-		gap: 50px;
-	}
-	.loader {
-		border: 16px solid #f3f3f3;
-		border-radius: 50%;
-		border-top: 16px solid #3498db;
-		width: 120px;
-		height: 120px;
-		-webkit-animation: spin 2s linear infinite; /* Safari */
-		animation: spin 2s linear infinite;
 	}
 
 	.note-container {
@@ -78,23 +60,8 @@ vim.opt.autoread = true
 		border: 1px solid #ccc;
 		border-radius: 8px;
 		box-shadow: 0 0 0px rgba(0, 0, 0, 0.1);
-
-		max-height: 40rem;
-		max-width: 50rem;
-
-		padding-block: 35px;
-		padding-inline: 40px;
-
-		font-size: 100%;
-
-		transition: all 0.6s;
 		/* border: 0.1px transparent solid; */
 		/* margin: 20px; */
-	}
-
-	.note-title {
-		font-size: 140%;
-		font-weight: 900;
 	}
 
 	.note-desc {
@@ -108,9 +75,7 @@ vim.opt.autoread = true
 	}
 
 	.note-link {
-		font-size: 90%;
 		font-weight: lighter;
-
 		text-decoration: none;
 	}
 
@@ -140,6 +105,67 @@ vim.opt.autoread = true
 		}
 		100% {
 			transform: rotate(360deg);
+		}
+	}
+
+	@media only screen and (min-width: 600px) {
+		.main-container {
+			padding-block: 50px;
+
+			padding-inline: 200px;
+			margin: auto;
+
+			gap: 50px;
+		}
+
+		.note-container {
+			max-height: 40rem;
+			max-width: 50rem;
+
+			padding-block: 35px;
+			padding-inline: 40px;
+
+			font-size: 100%;
+
+			transition: all 0.6s;
+		}
+
+		.note-title {
+			font-size: 140%;
+			font-weight: 900;
+		}
+
+		.note-link {
+			font-size: 90%;
+		}
+	}
+
+	@media only screen and (max-width: 600px) {
+		.main-container {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			justify-content: center;
+			align-items: center;
+
+			margin-block: 15px;
+			margin-inline: 10px;
+		}
+
+		.note-container {
+			min-height: 14rem;
+
+			font-size: 100%;
+			padding-inline: 20px;
+		}
+
+		.note-title {
+			font-size: 110%;
+			font-weight: 900;
+		}
+
+		.note-link {
+			font-size: 80%;
 		}
 	}
 </style>
