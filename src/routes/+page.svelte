@@ -5,7 +5,7 @@
     <div class="title-txt">
     </div>
     <div class="about-text">
-        Work In Process 👷‍♂️
+        Work In Progress 👷‍♂️
     </div>
 </div>
 
