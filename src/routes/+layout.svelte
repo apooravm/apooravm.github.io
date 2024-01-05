@@ -44,7 +44,16 @@
 		console.log(currentRoute)
 	}
 
+	const currentDate = new Date();
+	const hours = currentDate.getHours();
+	const minutes = currentDate.getMinutes();
+	const seconds = currentDate.getSeconds();
+
+	const titleMessage = hours < 12 ? "Good Morning" : hours < 16 ? "Good Afternoon" : "Good Evening";
+
 </script>
+
+<title>{titleMessage}</title>
 
 <div class="main-container">
 	<div class="sidebar" role="presentation" on:mouseenter={updateLogoText} on:keypress={() => {}}>
