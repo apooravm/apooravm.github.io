@@ -31,7 +31,7 @@
 	"type": "module",
 	"dependencies": {
 		"cheerio": "^1.0.0-rc.12",
-		"marked": "^9.1.5",
+		"marked": "^9.1.6",
 		"node-fetch": "^3.3.2",
 		"puppeteer": "^21.5.2",
 		"svelte-cubed": "^0.2.1",

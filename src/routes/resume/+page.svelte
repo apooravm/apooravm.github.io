@@ -1,10 +1,29 @@
+<script>
+	let serverOnline = false;
+	fetch('https://multi-serve.onrender.com/api/cronping')
+		.then((res) => {
+			serverOnline = true;
+		})
+		.catch((err) => {
+			serverOnline = false;
+		});
+</script>
+
 <div class="resume-container">
-	<iframe
-		id="resume-main"
-		src="https://multi-serve.onrender.com/api/resume/html"
-		frameborder="0"
-		title="Resume"
-	/>
+	{#if serverOnline}
+		<iframe
+			id="resume-main"
+			src="https://multi-serve.onrender.com/api/resume/html"
+			frameborder="0"
+			title="Resume"
+		/>
+	{/if}
+
+	{#if !serverOnline}
+		<div class="server-offline">
+			Server Offline
+		</div>
+	{/if}
 </div>
 
 <style>
