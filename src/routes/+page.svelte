@@ -16,11 +16,17 @@
 			</a>
 		</div>
 	</div>
+	<div class="main-hero">
+		<div class="main-hero-welcome">
+			Hey 👋 this is <div class="main-hero-welcome-name">Ligma Jones</div>
+		</div>
+	</div>
 	<div class="title-txt" />
 	<div class="about-text">Work In Progress 👷‍♂️</div>
 </div>
 
 <style>
+	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800;900&display=swap');
 	.home-container {
 		display: flex;
 		flex-direction: column;
@@ -65,9 +71,40 @@
 		align-items: center;
 		justify-content: center;
 
-		height: 100%;
+		/* height: 100%; */
 		font-size: 110%;
 		font-weight: bolder;
+	}
+
+	.main-hero {
+		display: flex;
+		flex-direction: row;
+
+		height: 20rem;
+
+		/* border: 1px solid red; */
+	}
+
+	.main-hero-welcome {
+		display: flex;
+		align-items: center;
+		font-family: Poppins;
+
+		margin-left: 5rem;
+		font-size: 200%;
+		font-weight: 500;
+
+		/* border: 1px solid #ccc;
+		box-shadow: 0 0 0px rgba(0, 0, 0, 0.1);
+
+		background-color: rgb(255, 255, 255); */
+
+		/* border: 1px solid red; */
+	}
+
+	.main-hero-welcome-name {
+		padding-left: 0.6rem;
+		font-weight: 700;
 	}
 
 	@media only screen and (min-width: 600px) {
@@ -80,8 +117,8 @@
 
 			margin-right: 10px;
 			/* max-height: 2.9rem; */
-			min-width: 6rem;
-			border-radius: 22px;
+			min-width: 5.5rem;
+			border-radius: 10px;
 			padding-block: 0.3rem;
 
 			border: 1px solid #ccc;
@@ -91,14 +128,14 @@
 		}
 
 		.home-header-links img {
-			max-height: 1.9rem;
+			max-height: 1.8rem;
 
 			/* margin-inline: 0.4rem; */
 		}
 	}
 
 	@media only screen and (max-width: 600px) {
-        .home-header {
+		.home-header {
 			min-height: 3rem;
 		}
 
@@ -121,6 +158,31 @@
 			max-height: 2rem;
 
 			/* margin-inline: 0.4rem; */
+		}
+
+		.main-hero-welcome {
+			display: flex;
+			align-items: center;
+			font-family: Poppins;
+			width: 100%;
+
+			justify-content: center;
+
+			margin-left: 0rem;
+			font-size: 100%;
+			font-weight: 500;
+
+			/* border: 1px solid #ccc;
+		box-shadow: 0 0 0px rgba(0, 0, 0, 0.1);
+
+		background-color: rgb(255, 255, 255); */
+
+			/* border: 1px solid red; */
+		}
+
+		.main-hero-welcome-name {
+			padding-left: 0.6rem;
+			font-weight: 700;
 		}
 	}
 </style>
