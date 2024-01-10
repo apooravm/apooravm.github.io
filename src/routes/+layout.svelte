@@ -1,4 +1,5 @@
 <script lang="ts">
+	import "../app.css";
 	import { browser } from "$app/environment";
 
 	let hoverCount = 0;
