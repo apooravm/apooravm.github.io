@@ -129,6 +129,17 @@
 
 	.btn {
 		font-family: monospace;
+
+		border: 1px solid #ccc;
+	}
+
+	.btn:hover {
+		background-color: rgb(238, 238, 238);
+		border: 1px solid #a8a8a8;
+	}
+
+	.btn:active {
+		background-color: rgb(219, 219, 219);
 	}
 
 	@media only screen and (min-width: 600px) {
@@ -137,7 +148,7 @@
 		}
 
 		.form-container form {
-			width: 300px;
+			width: 25rem;
 
 			padding-block: 80px;
 			padding-inline: 80px;

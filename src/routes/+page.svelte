@@ -1,6 +1,6 @@
 <script lang="ts">
 </script>
-
+ 
 <div class="home-container">
 	<div class="home-header">
 		<div class="home-header-links">
@@ -23,10 +23,12 @@
 	</div>
 	<div class="title-txt" />
 	<div class="about-text">Work In Progress 👷‍♂️</div>
+	<div class="text-green-400">
+		
+	</div>
 </div>
 
 <style>
-	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800;900&display=swap');
 	.home-container {
 		display: flex;
 		flex-direction: column;
@@ -103,7 +105,7 @@
 	}
 
 	.main-hero-welcome-name {
-		padding-left: 0.6rem;
+		padding-left: 0.5rem;
 		font-weight: 700;
 	}
 
