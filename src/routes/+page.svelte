@@ -18,7 +18,7 @@
 	</div>
 	<div class="main-hero">
 		<div class="main-hero-welcome">
-			Hey 👋 this is <div class="main-hero-welcome-name">Ligma Jones</div>
+			Hey 👋 this is <div class="main-hero-welcome-name">Apoorav Medal</div>
 		</div>
 	</div>
 	<div class="title-txt" />
@@ -42,7 +42,7 @@
 
 		display: flex;
 		flex-direction: row;
-		justify-content: end;
+		justify-content: flex-end;
 		align-items: center;
 
 		width: 100%;
