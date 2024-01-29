@@ -71,9 +71,9 @@
 </div> -->
 
 <div class="flex w-full flex-row sm:min-h-screen sm:flex-row">
-    <div class="fixed py-4 px-4 border-red-400 border-0">
+    <div class="fixed group my-4 mx-4 border-red-400 border-2">
         <a class={`flex flex-col w-full rounded-lg bottom-0 items-center gap-[2px] ${currentActiveIdx === 0 ? " " : " "}`} href={homeLink.link} on:click={() => {updateCurrActive(0)}}>
-            <img class="w-10 rotate-0 hover:rotate-180 duration-300" src={homeLink.icon} alt={homeLink.alt} />
+            <img class="w-10 rotate-0 group-hover:rotate-180 duration-300" src={homeLink.icon} alt={homeLink.alt} />
         </a>
     </div>
 	<div class="group z-50 fixed flex flex-col justify-end mt-24 py-4 w-24 border-0 border-green-400">
