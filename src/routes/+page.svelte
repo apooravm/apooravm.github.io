@@ -2,16 +2,14 @@
 </script>
  
 <div class="home-container">
-	<div class="home-header">
+	<div class="z-40 home-header">
 		<div class="home-header-links backdrop-blur-[1px] bg-stone-200 bg-opacity-90">
 			<a href="http://github.com/apooravm" target="_blank" title="Github Profile">
 				<img class="" src="/logo-github.svg" alt="github-logo" />
 			</a>
-			<a
-				href="https://www.linkedin.com/in/apoorav-medal-276409234/"
+			<a href="https://www.linkedin.com/in/apoorav-medal-276409234/"
 				target="_blank"
-				title="LinkedIn Profile"
-			>
+				title="LinkedIn Profile">
 				<img src="/logo-linkedin-square.svg" alt="github-logo" />
 			</a>
 		</div>
