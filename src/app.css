@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+	font-size: 20px;
+	font-family: monospace;
+	--transition-speed: 300ms;
+	--transition-speed-slow: 100ms;
+}
+
+:global(body)::-webkit-scrollbar {
+	width: 0.25rem;
+}
+
+:global(body)::-webkit-scrollbar-thumb {
+	background-color: rgb(97, 37, 154);
+}
+
+:global(body)::-webkit-scrollbar-track {
+	background-color: #141418;
+}
+
+:global(html),
+:global(body) {
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	font-family: 'monospace', sans-serif;
+}

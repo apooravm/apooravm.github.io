@@ -3,9 +3,9 @@
  
 <div class="home-container">
 	<div class="home-header">
-		<div class="home-header-links">
+		<div class="home-header-links backdrop-blur-[1px] bg-stone-200 bg-opacity-90">
 			<a href="http://github.com/apooravm" target="_blank" title="Github Profile">
-				<img src="/logo-github.svg" alt="github-logo" />
+				<img class="" src="/logo-github.svg" alt="github-logo" />
 			</a>
 			<a
 				href="https://www.linkedin.com/in/apoorav-medal-276409234/"
@@ -17,12 +17,11 @@
 		</div>
 	</div>
 	<div class="main-hero">
-		<div class="main-hero-welcome">
+		<div class="main-hero-welcome text-white">
 			Hey 👋 this is <div class="main-hero-welcome-name">Apoorav Medal</div>
 		</div>
 	</div>
-	<div class="title-txt" />
-	<div class="about-text">Work In Progress 👷‍♂️</div>
+	<div class="about-text text-white">Work In Progress 👷‍♂️</div>
 	<div class="text-green-400">
 		
 	</div>
@@ -61,10 +60,6 @@
 
 	.home-header-links a {
 		line-height: 0;
-	}
-
-	.title-txt {
-		font-size: 200%;
 	}
 
 	.about-text {
@@ -125,8 +120,6 @@
 
 			border: 1px solid #ccc;
 			box-shadow: 0 0 0px rgba(0, 0, 0, 0.1);
-
-			background-color: rgb(255, 255, 255);
 		}
 
 		.home-header-links img {
