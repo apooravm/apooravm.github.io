@@ -98,10 +98,7 @@
 
 <div class="flex w-full flex-row sm:min-h-screen sm:flex-row">
 	<div class="w-full border-[1px] border-stone-200 m-6 flex flex-col text-white">
-        <div class="border-0 border-red-400 py-10 pl-10 font-yanone font-extralight text-5xl">
-            Apoorav Medal
-            <div class="text-xl font-light">Developer</div>
-        </div>
+        <slot />
 	</div>
 </div>
 
