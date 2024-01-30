@@ -3,6 +3,9 @@ export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
 		extend: {
+            fontFamily: {
+                yanone: ["Yanone Kaffeesatz", "sans-serif"]
+            },
 			colors: {
 				primary: {
 					DEFAULT: '#23232e',
