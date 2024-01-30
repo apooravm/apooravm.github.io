@@ -45,7 +45,7 @@
 	<div class="form-container">
 		<form id="registerForm">
 			<input
-				class="btn-inp"
+				class="bg-stone-100"
 				type="text"
 				name="username"
 				autocomplete="off"
@@ -53,7 +53,7 @@
 				required
 			/>
 			<input
-				class="btn-inp"
+				class="bg-stone-100"
 				type="email"
 				name="email"
 				autocomplete="off"
@@ -61,7 +61,7 @@
 				required
 			/>
 			<input
-				class="btn-inp"
+				class="bg-stone-100"
 				type="password"
 				name="password"
 				autocomplete="off"
@@ -112,19 +112,8 @@
 		align-items: center;
 		justify-content: center;
 
-		background-color: rgb(255, 255, 255);
-		border: 1px solid #ccc;
-		border-radius: 8px;
-		box-shadow: 0 0 0px rgba(0, 0, 0, 0.1);
-	}
-
-	.btn-inp {
-		border: 0px;
-		border-bottom: 1px solid black;
-
-		font-family: monospace;
-
-		outline: none;
+		background-color: rgba(255, 255, 255, 0.199);
+        border-radius: 20px;
 	}
 
 	.btn {

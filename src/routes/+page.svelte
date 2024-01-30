@@ -1,17 +1,28 @@
 <script lang="ts">
+	const contactLinks = [
+		{
+			title: 'Github Profile',
+			alt: 'github-logo',
+			icon: '/logo-github-bgwhite.svg',
+			link: 'http://github.com/apooravm'
+		},
+		{
+			title: 'LinkedIn Profile',
+			alt: 'linkedin-logo',
+			icon: '/logo-linkedin-square-bgwhite.svg',
+			link: 'https://www.linkedin.com/in/apoorav-medal-276409234/'
+		}
+	];
 </script>
- 
+
 <div class="home-container">
-	<div class="z-40 home-header">
-		<div class="home-header-links backdrop-blur-[1px] bg-stone-200 bg-opacity-90">
-			<a href="http://github.com/apooravm" target="_blank" title="Github Profile">
-				<img class="" src="/logo-github.svg" alt="github-logo" />
-			</a>
-			<a href="https://www.linkedin.com/in/apoorav-medal-276409234/"
-				target="_blank"
-				title="LinkedIn Profile">
-				<img src="/logo-linkedin-square.svg" alt="github-logo" />
-			</a>
+	<div class="absolute z-40 w-full flex flex-row justify-end">
+		<div class="flex flex-row m-2 px-1 py-1 rounded-lg gap-[6px] border-2 border-stone-600 hover:border-stone-300 duration-300">
+			{#each contactLinks as link, idx}
+				<a href={link.link} title={link.title} target="_blank">
+					<img class="w-8" src={link.icon} alt={link.alt} />
+				</a>
+			{/each}
 		</div>
 	</div>
 	<div class="main-hero">
@@ -20,9 +31,7 @@
 		</div>
 	</div>
 	<div class="about-text text-white">Work In Progress 👷‍♂️</div>
-	<div class="text-green-400">
-		
-	</div>
+	<div class="text-green-400" />
 </div>
 
 <style>
