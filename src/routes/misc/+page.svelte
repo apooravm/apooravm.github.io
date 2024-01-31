@@ -1,62 +1,28 @@
-<script lang="ts">
-	import { marked } from 'marked';
-	import { onMount } from 'svelte';
-
-	let markedDiv: HTMLElement;
-
-	onMount(() => {
-		fetch("https://multi-serve.onrender.com/api/notes/001_threejs-in-react-three-fiber-and-svelte-cubed.md")
-		.then((res) => {
-			res.text()
-			.then(text => {
-				if (markedDiv) {
-					markedDiv.innerHTML = marked.parse(text);
-				}
-			})
-		})
-		if (markedDiv) {
-			markedDiv.innerHTML = marked.parse('# Marked in the browser\n\nRendered by **marked**.');
-		}
-	});
+<script>
+    const notes = [
+        "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to",
+        "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33",
+        "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33",
+        "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33",
+        "All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words,",
+        "All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words,",
+        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventor",
+        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventor",
+        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventor",
+        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventor"
+    ]
 </script>
 
-<div class="markdown-container">
-	<div class="md-note" bind:this={markedDiv} />
+<div class="columns-2 px-2 sm:columns-3 sm:px-4 md:px-6 lg:px-20 py-2 gap-x-2 justify-center">
+    {#each notes as note}
+        <div class="border-2 my-1 sm:my-2 text-[10px] sm:text-[14px] px-2 py-2 rounded-lg border-pink-500 inline-block w-full">
+            {note}
+        </div>
+    {/each}
 </div>
 
 <style>
-	.markdown-container {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-
-		margin: 0;
-		padding: 0;
-
-		margin-left: 0rem;
-		padding-block: 20px;
-
-		font-size: 80%;
-
-	}
-
-	.md-note {
-		/* display: flex;
-		flex-direction: column;
-		justify-content: center; */
-		max-width: 50rem;
-
-		padding-inline: 30px;
-
-		background-color: rgb(255, 255, 255);
-		border: 1px solid #ccc;
-		border-radius: 8px;
-		box-shadow: 0 0 0px rgba(0, 0, 0, 0.1);
-	}
-
-	.md-note p {
-		max-width: 60%;
-		height: auto;
-	}
+    * {
+        box-sizing: border-box;
+    }
 </style>

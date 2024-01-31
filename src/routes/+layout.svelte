@@ -1,6 +1,10 @@
 <script lang="ts">
 	import '../app.css';
 
+	const randomNum = (lowerRange: number, upperRange: number) => {
+		return Math.floor(Math.random() * 100);
+	};
+
 	const homeLink = {
 		title: 'Hey',
 		icon: '/sidebar-logo-lifebuoy.svg',
@@ -52,6 +56,28 @@
 	const updateCurrActive = (newIdx: number) => {
 		currentActiveIdx = newIdx;
 	};
+
+	let divW = [60, 40, 40, 60];
+
+	const updateDivW = (currIdx: number) => {
+		const val = 10;
+		switch (currIdx % 2 === 0) {
+			// Even idx
+			case true:
+				divW[currIdx + 1] -= val;
+				divW[currIdx] += val;
+				break;
+
+			// Odd idx
+			case false:
+				divW[currIdx - 1] -= val;
+				divW[currIdx] += val;
+				break;
+
+			default:
+				break;
+		}
+	};
 </script>
 
 <title>{'Hey'}</title>
@@ -70,23 +96,11 @@
     drop-shadow-[0_15px_15px_rgba(235,52,140,0.9)]
 </div> -->
 
-<div class="flex w-full flex-row sm:min-h-screen sm:flex-row">
-    <div class="fixed z-50 group my-4 mx-4 border-red-400 border-0">
-        <a class={`flex flex-col w-full ${currentActiveIdx === 0 ? " " : " "}`} href={homeLink.link} on:click={() => {updateCurrActive(0)}}>
-            <img class="w-10 rotate-0 group-hover:rotate-180 duration-300" src={homeLink.icon} alt={homeLink.alt} />
-        </a>
-    </div>
-	<div class="group z-50 fixed flex flex-col justify-end mt-24 w-10 hover:w-20 border-0 border-green-400">
-		<div class="flex flex-col justify-center gap-2 -ml-16 py-2 h-full items-center w-[4.5rem] group-hover:ml-2 group-hover:border-stone-600 group-hover:border-[1px] duration-300 backdrop-blur-[1px] backdrop-saturate-0 border-[1px] border-stone-600 rounded-xl">
-			{#each sidebarLinks as link, idx}
-				<a class={`flex flex-col w-full rounded-lg bottom-0 duration-[400ms] py-[4px] items-center gap-[2px] ${currentActiveIdx === idx+1 ? " bg-pink-400 bg-opacity-30 " : " "}`} href={link.link} on:click={() => {updateCurrActive(idx+1)}}>
-					<img class="w-8" src={link.icon} alt={link.alt} />
-					<span class="text-[14px] text-slate-200">{link.title}</span>
-				</a>
-			{/each}
-		</div>
-	</div>
-	<div class="w-full">
-		<slot />
+<div class="flex w-full flex-row h-screen sm:min-h-screen sm:flex-row">
+	<div class="w-full h-full border-[1px] border-stone-200 m-6 flex flex-col text-white">
+        <slot />
 	</div>
 </div>
+
+<style>
+</style>
