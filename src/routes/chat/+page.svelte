@@ -34,7 +34,7 @@
 	onMount(() => {
 		// Ensure the WebSocket connection is established after component is mounted
         const url = "wss://multi-serve.onrender.com/api/chat";
-        const url2 = "ws://localhost:4400/chat";
+        const url2 = "ws://localhost:4000/api/chat";
 		socket = new WebSocket(url);
 
 		socket.onerror = () => {

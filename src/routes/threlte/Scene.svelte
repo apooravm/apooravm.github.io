@@ -70,3 +70,4 @@
 	<T.SphereGeometry args={[1, 25, 25]} />
 	<T.MeshStandardMaterial color="white" />
 </T.Mesh>
+
