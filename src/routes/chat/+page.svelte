@@ -20,24 +20,25 @@
 	let inputText: string;
 	let socket: WebSocket | null = null;
 
-    const newMessage: Message = {
-				Id: messages.length + 1,
-				Content: 'ERROR',
-				Config: '',
-				Direction: C2A,
-				Password: '1234',
-				Sender: 'CoolAfone',
-				Timestamp: new Date().toLocaleTimeString()
-			};
-			messages.push(newMessage);
+	const newMessage: Message = {
+		Id: messages.length + 1,
+		Content: 'Idk',
+		Config: '',
+		Direction: C2A,
+		Password: '1234',
+		Sender: 'CoolAfone',
+		Timestamp: new Date().toLocaleTimeString()
+	};
+	messages.push(newMessage);
 
 	onMount(() => {
 		// Ensure the WebSocket connection is established after component is mounted
-        const url = "wss://multi-serve.onrender.com/api/chat";
-        const url2 = "ws://localhost:4000/api/chat";
-		socket = new WebSocket(url);
+		const url = 'wss://multi-serve.onrender.com/api/chat';
+		const url2 = 'ws://localhost:4000/api/chat/';
+		const ur3 = 'wss://socketsbay.com/wss/v2/1/demo/';
+		socket = new WebSocket(url2);
 
-		socket.onerror = () => {
+		socket!.onerror = () => {
 			const newMessage: Message = {
 				Id: messages.length + 1,
 				Content: 'ERROR',
@@ -50,7 +51,7 @@
 			messages.push(newMessage);
 		};
 
-		socket.onopen = () => {
+		socket!.onopen = () => {
 			// Handshake
 			const handshakeMessage: Message = {
 				Id: messages.length + 1,
@@ -64,10 +65,11 @@
 
 			if (socket) {
 				socket.send(JSON.stringify(handshakeMessage));
+                // socket.send("Эй, чувак")
 			}
 		};
 
-		socket.onmessage = (e) => {
+		socket!.onmessage = (e) => {
 			// setMessages([...messages, JSON.parse(e.data)]);
 			let receivedMessage: Message = JSON.parse(e.data);
 
