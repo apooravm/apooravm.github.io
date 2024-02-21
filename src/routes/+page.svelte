@@ -49,7 +49,7 @@
 <div class="flex flex-col w-full h-full font-yanone text-center">
 	Hey there 👋
 	<div class="">I'm Apoorav Medal.</div>
-	<div class="">Developer | learner | outdoors guy</div>
+	<div class="">dev | learner</div>
 	<div class="w-full border-2 border-red-500 flex justify-center h-full" id="bruh">
     </div>
 </div>

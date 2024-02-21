@@ -28,3 +28,21 @@
 	padding: 0px;
 	font-family: 'monospace', sans-serif;
 }
+
+@layer utilities {
+	.scrollbar::-webkit-scrollbar {
+		width: 2px;
+		height: 20px;
+	}
+
+	.scrollbar::-webkit-scrollbar-track {
+		border-radius: 100vh;
+		background: rgb(37, 37, 37);
+	}
+
+	.scrollbar::-webkit-scrollbar-thumb {
+		background: #ffffff;
+		border-radius: 100vh;
+		/* border: 3px solid #f6f7ed; */
+	}
+}
