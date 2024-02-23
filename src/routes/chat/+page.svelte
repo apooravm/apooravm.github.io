@@ -39,7 +39,7 @@
 		const url = 'wss://multi-serve.onrender.com/api/chat';
 		const url2 = 'ws://localhost:4000/api/chat';
 		const ur3 = 'wss://socketsbay.com/wss/v2/1/demo/';
-		socket = new WebSocket(url);
+		socket = new WebSocket(url2);
 
 		socket!.onerror = () => {
 			const newMessage: Message = {

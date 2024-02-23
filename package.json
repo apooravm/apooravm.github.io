@@ -1,6 +1,7 @@
 {
 	"name": "apooravm-webapp",
-	"version": "0.0.1",
+    "author": "Apoorav Medal",
+	"version": "0.1.2",
 	"private": true,
 	"scripts": {
 		"dev": "vite dev --host",
