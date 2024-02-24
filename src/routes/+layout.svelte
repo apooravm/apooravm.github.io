@@ -97,7 +97,7 @@
 </div> -->
 
 <div class="flex w-full flex-row min-h-screen sm:min-h-screen sm:flex-row">
-	<div class="w-full border-[0.5rem] sm:border-[1rem] border-stone-200 m-2 sm:m-6 flex flex-col max-h-full text-white">
+	<div class="dotted-bg w-full border-[0.5rem] sm:border-[0.1px] border-stone-200 m-2 sm:m-5 flex flex-col max-h-full text-white">
         <slot />
 	</div>
 </div>

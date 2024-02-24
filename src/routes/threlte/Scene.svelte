@@ -53,8 +53,7 @@
 	scale={$scale}
 	on:pointerenter={() => scale.set(1.5)}
 	on:pointerleave={() => scale.set(1)}
-	castShadow
->
+	castShadow>
 	<T.BoxGeometry args={[1, 1, 1]} />
 	<T.MeshStandardMaterial color="hotpink" wireframe={true} />
 </T.Mesh>
@@ -62,7 +61,7 @@
 <T.PointLight position.y={1} intensity={5} castShadow />
 
 <T.Mesh position.y={mainSpherePos.y} position.z={mainSpherePos.z} receiveShadow castShadow>
-	<T.SphereGeometry args={[2, 25, 25]} />
+	<T.SphereGeometry args={[3, 25, 25]} />
 	<T.MeshStandardMaterial color="white" />
 </T.Mesh>
 

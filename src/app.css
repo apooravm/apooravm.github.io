@@ -29,6 +29,12 @@
 	font-family: 'monospace', sans-serif;
 }
 
+.dotted-bg {
+    background-size: 20px 20px;
+    background-image: radial-gradient(circle, #ffffff25 1px, rgba(255, 255, 255, 0) 1px);
+    background-attachment: fixed;
+}
+
 @layer utilities {
 	.scrollbar::-webkit-scrollbar {
 		width: 2px;
