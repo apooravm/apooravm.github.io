@@ -12,7 +12,7 @@
 	};
 
 	interactivity();
-	const scale = spring(1);
+	const scale = spring(2);
 
 	let rotation = 0;
 	let mainSpherePos: Position = { x: 0, y: 0, z: 0 };
@@ -45,7 +45,7 @@
 
 <T.DirectionalLight position={[0, 10, 10]} castShadow />
 
-<T.AxesHelper args={[2]} />
+<!-- <T.AxesHelper args={[2]} /> -->
 
 <T.Mesh
 	position.y={1}
