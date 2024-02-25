@@ -4,20 +4,28 @@
 
     const siteRoutes = [
         {
+            title: "register",
+            link: "/register",
+        },
+        {
             title: "notes",
             link: "/notes",
+        },
+        {
+            title: "chat",
+            link: "/chat",
         },
         {
             title: "journal",
             link: "/journal",
         },
         {
-            title: "threlte",
-            link: "/threlte",
-        },
-        {
             title: "echows",
             link: "/echows",
+        },
+        {
+            title: "threlte",
+            link: "/threlte",
         },
     ]
 
@@ -32,7 +40,7 @@
         },
         {
             title: "resume",
-            link: "/resume",
+            link: "https://multi-serve.onrender.com/api/resume/html",
         },
         // {
         //     title: "mail",
@@ -56,14 +64,14 @@
             <div class="flex flex-col sm:text-base text-sm">
                 <span>contact</span>
                 {#each contactLinks as link}
-                    <a class="font-thin underline" href={link.link}>{link.title}</a>
+                    <a class="font-thin underline underline-offset-4 decoration-1" href={link.link}>{link.title}</a>
                 {/each}
             </div>
         </div>
-        <div class="flex flex-col sm:text-base text-sm">
+        <div class="flex flex-col sm:text-base text-sm w-max">
             <span class="font-semibold">stuff</span>
             {#each siteRoutes as link}
-                <a class="font-thin underline" href={link.link}>{link.title}</a>
+                <a class="font-thin underline underline-offset-4 decoration-1" href={link.link}>{link.title}</a>
             {/each}
         </div>
 	</div>

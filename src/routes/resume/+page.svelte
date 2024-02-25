@@ -27,6 +27,10 @@
 </div>
 
 <style>
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
 	.resume-container {
 		width: 100%;
 

@@ -58,7 +58,7 @@
 	<T.MeshStandardMaterial color="hotpink" wireframe={true} />
 </T.Mesh> -->
 <T.Mesh scale={0.05} position.y={1} rotation.y={rotation} receiveShadow castShadow>
-    <T.TorusKnotGeometry args={[20, 3, 100, 16]} />
+    <T.TorusKnotGeometry args={[20, 3, 50, 16]} />
     <T.MeshStandardMaterial color="hotpink" />
 </T.Mesh>
 
