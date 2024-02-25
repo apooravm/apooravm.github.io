@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	const username = 'Coolafone';
+	let username = '';
 	const password = '1234';
+    let connectToServer = false;
 
 	interface Message {
 		Id: number;
@@ -17,6 +18,10 @@
 	const C2S = 'client-to-server';
 	const S2C = 'server-to-client';
 	const S2A = 'server-to-all';
+
+	const url = 'wss://multi-serve.onrender.com/api/chat';
+	const url2 = 'ws://localhost:4000/api/chat';
+	const ur3 = 'wss://socketsbay.com/wss/v2/1/demo/';
 
 	let messages: Message[] = [];
 	let inputText: string;
@@ -34,12 +39,9 @@
 	// };
 	// messages = [...messages, newMessage];
 
-	onMount(() => {
+	const chatBusiness = () => {
 		// Ensure the WebSocket connection is established after component is mounted
-		const url = 'wss://multi-serve.onrender.com/api/chat';
-		const url2 = 'ws://localhost:4000/api/chat';
-		const ur3 = 'wss://socketsbay.com/wss/v2/1/demo/';
-		socket = new WebSocket(url2);
+		socket = new WebSocket(url);
 
 		socket!.onerror = () => {
 			const newMessage: Message = {
@@ -105,27 +107,52 @@
 			messages = [newMessage, ...messages];
 			inputText = '';
 		};
-	});
+	};
+
+    const initChatSocket = () => {
+        if (username.length === 0) {
+            return;
+        }
+        username = username.trim();
+        connectToServer = true;
+        chatBusiness();
+    }
 </script>
 
 <!-- Using col-reverse and ordering elements from the bottom keeps the scrollbar at the bottom -->
-<div class="h-full border-[0px] border-red-500 relative overflow-hidden font-sans">
-	<div class="scrollbar absolute max-h-[calc(100%-4rem)] overflow-y-scroll w-full flex flex-col-reverse gap-2 pt-2 sm:px-4 px-2 z-10">
-		{#each messages as message}
-			<div class={`w-full border-0 sm:px-4 border-red-500 flex ${message.Sender === username ? " justify-end " : " justify-start "}`}>
-                <div class={`flex flex-col w-fit border-2 border-gray-300 pt-1 pb-2 rounded-lg ${message.Sender === username ? " pl-4 pr-3 " : " pl-2 pr-6 "}`}>
-                    <span class={`text-[0.7rem] ${message.Sender === username ? " text-end text-lime-400" : " text-start text-pink-400 "}`}>{message.Sender}</span>
-                    {message.Content}
+<div class="relative h-full w-full">
+    <div class={`absolute flex flex-col justify-center items-center h-full w-full px-4 gap-2 ${connectToServer ? " hidden " : " block "}`}>
+        <input class="rounded-lg px-2 text-black font-sans py-1 w-full sm:w-1/4" type="text" placeholder="chat as" bind:value={username}>
+        <button class="w-full sm:w-1/4 rounded-lg py-1 border-[1px] border-gray-400 hover:bg-stone-500 hover:bg-opacity-25" on:click={initChatSocket}>Go</button>
+    </div>
+    <div class={`h-full border-[0px] border-red-500 relative overflow-hidden font-sans ${!connectToServer ? " pointer-events-none opacity-35 blur-[2px]" : " pointer-events-auto opacity-100 blur-0 "}`}>
+        <div class="scrollbar absolute max-h-[calc(100%-4rem)] overflow-y-scroll w-full flex flex-col-reverse gap-2 pt-2 sm:px-4 px-2 z-10">
+            {#each messages as message}
+                <div class={`w-full border-0 sm:px-4 border-red-500 flex ${
+                        message.Sender === username ? ' justify-end ' : ' justify-start '}`}>
+                    <div class={`flex flex-col w-fit border-2 border-gray-300 pt-1 pb-2 rounded-lg ${
+                        message.Sender === username ? ' pl-4 pr-3 ' : ' pl-2 pr-6 '}`}>
+                        <span
+                            class={`text-[0.7rem] ${
+                                message.Sender === username ? ' text-end text-lime-400' : ' text-start text-pink-400 '
+                            }`}>{message.Sender}</span>
+                        {message.Content}
+                    </div>
                 </div>
-            </div>
-		{/each}
-	</div>
-
-	<div class="absolute bottom-0 flex flex-row w-full gap-2 px-2 py-2 z-40">
-		<input id="user-input" type="text" placeholder="Your message" on:keypress={(e) => {e.key === "Enter" ? handleSend() : ""}} bind:value={inputText} class="w-full rounded-lg py-2 pl-2 pr-4 text-black placeholder:text-stone-500" />
-		<button class="border-2 border-gray-200 px-6 rounded-lg py-1" on:click={handleSend}>Send</button>
-	</div>
+            {/each}
+        </div>
+    
+        <div class="absolute bottom-0 flex flex-row w-full gap-2 px-2 py-2 z-40">
+            <input
+                id="user-input"
+                type="text"
+                placeholder="Your message"
+                on:keypress={(e) => {
+                    e.key === 'Enter' ? handleSend() : '';
+                    }}
+                bind:value={inputText}
+                class="w-full rounded-lg py-2 pl-2 pr-4 text-black placeholder:text-stone-500"/>
+            <button class="border-2 border-gray-200 px-6 rounded-lg py-1" on:click={handleSend}>Send</button>
+        </div>
+    </div>
 </div>
-
-<style>
-</style>
