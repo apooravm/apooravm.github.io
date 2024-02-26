@@ -2,19 +2,20 @@
 	let reqStatus: number = 0;
 	let reqStatusStr = '';
 
+	let username = '';
+	let password = '';
+	let email = '';
+
 	type ServerResponse = {
 		code: string;
 		message: string;
 	};
 
 	const submitForm = () => {
-		const formElm = document.getElementById('registerForm') as HTMLFormElement;
-		const formData: FormData = new FormData(formElm);
-
 		const payload = {
-			username: formData.get('username'),
-			email: formData.get('email'),
-			password: formData.get('password')
+			username: username,
+			email: email,
+			password: password
 		};
 
 		if (!payload.username || !payload.email || !payload.password) {
@@ -41,166 +42,36 @@
 	};
 </script>
 
-{#if reqStatus === 0}
-	<div class="form-container">
-		<form id="registerForm">
-			<input
-				class="bg-stone-100"
-				type="text"
-				name="username"
-				autocomplete="off"
-				placeholder="username"
-				required
-			/>
-			<input
-				class="bg-stone-100"
-				type="email"
-				name="email"
-				autocomplete="off"
-				placeholder="email"
-				required
-			/>
-			<input
-				class="bg-stone-100"
-				type="password"
-				name="password"
-				autocomplete="off"
-				placeholder="password"
-				required
-			/>
-			<button class="btn" type="button" on:click={submitForm}>Register</button>
-		</form>
-	</div>
-{/if}
+<div class="flex flex-col justify-center items-center h-full font-yanone">
+	<!-- Req hasnt been sent -->
+	{#if reqStatus === 0}
+		<div class="flex flex-col border-[1px] border-gray-200 p-8 rounded-lg gap-2">
+            <input class="rounded-sm px-2 py-1 text-gray-900 tracking-wide" autocomplete="off" type="text" bind:value={username} placeholder="username">
+            <input class="rounded-sm px-2 py-1 text-gray-900 tracking-wide" autocomplete="off" type="email" bind:value={email} placeholder="email">
+            <input class="rounded-sm px-2 py-1 text-gray-900 tracking-wide" autocomplete="off" type="password" bind:value={password} placeholder="password">
+            <button class="border-[1px] border-gray-200 rounded-sm py-1 tracking-wide hover:bg-neutral-700 hover:bg-opacity-70" on:click={submitForm}>register</button>
+        </div>
+	{/if}
 
-{#if reqStatus >= 200 && reqStatus < 300}
-	<div class="form-container">
-		<h1>Success 🎉</h1>
-		<div class="res-text">The user has been registered successfully!</div>
-	</div>
-{/if}
+    <!-- Req Success -->
+    {#if reqStatus >= 200 && reqStatus < 300}
+        <div class="text-xl tracking-wide">
+            User was successfully registered 🎉
+        </div>
+    {/if}
 
-{#if reqStatus >= 400}
-	<div class="form-container">
-		<h1>Something went wrong! 😓</h1>
+    <!-- Req Failed -->
+    {#if reqStatus >= 400}
+        <div class="text-xl tracking-wide text-center">
+            <h1>Something went wrong! 😓</h1>
 
-		{#if reqStatus < 500}
-			<div class="res-text">{reqStatusStr}</div>
-		{/if}
+            {#if reqStatus < 500}
+                <span>{reqStatusStr}</span>
+            {/if}
 
-		{#if reqStatus >= 500}
-			<div class="res-text">Server is Offline</div>
-		{/if}
-	</div>
-{/if}
-
-<style>
-	.form-container {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-
-		/* padding-block: 50px; */
-
-		font-family: monospace;
-	}
-
-	form {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-
-		background-color: rgba(255, 255, 255, 0.199);
-        border-radius: 20px;
-	}
-
-	.btn {
-		font-family: monospace;
-
-		border: 1px solid #ccc;
-	}
-
-	.btn:hover {
-		background-color: rgb(238, 238, 238);
-		border: 1px solid #a8a8a8;
-	}
-
-	.btn:active {
-		background-color: rgb(219, 219, 219);
-	}
-
-	@media only screen and (min-width: 600px) {
-		.form-container {
-			min-height: 100vh;
-		}
-
-		.form-container form {
-			width: 25rem;
-
-			padding-block: 80px;
-			padding-inline: 80px;
-
-			gap: 10px;
-		}
-
-		.btn-inp {
-			width: 300px;
-			padding-block: 10px;
-			font-size: larger;
-		}
-
-		.btn {
-			margin-top: 20px;
-			width: 300px;
-			padding-block: 10px;
-			font-size: larger;
-		}
-
-		.res-text {
-			font-size: 120%;
-		}
-	}
-
-	/* Small Screens */
-	@media only screen and (max-width: 600px) {
-		.form-container {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-
-			height: 90vh;
-		}
-
-		.form-container form {
-			width: 80vw;
-			padding-top: 40px;
-
-			/* padding-block: 80px;
-			padding-inline: 80px; */
-
-			gap: 10px;
-		}
-
-		.btn-inp {
-			width: 80%;
-			padding-block: 10px;
-			font-size: 100%;
-		}
-
-		.btn {
-			margin-top: 20px;
-			width: 300px;
-			padding-block: 15px;
-			font-size: 100%;
-		}
-
-		.res-text {
-			font-size: 120%;
-		}
-
-		
-	}
-</style>
+            {#if reqStatus >= 500}
+                <span>Server is Offline</span>
+            {/if}
+        </div>
+    {/if}
+</div>
