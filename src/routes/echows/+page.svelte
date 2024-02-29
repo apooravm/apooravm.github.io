@@ -9,29 +9,18 @@
 	let url = 'wss://multi-serve.onrender.com/api/ws/echo';
     let userMessage = '';
 	const url2 = 'ws://localhost:4000/api/ws/echo';
-	onMount(() => {
-		// socket = new WebSocket(url2);
 
-		// socket.onopen = (ev) => {
-		// 	socket.send('subscribe');
-		// 	socket.send('subscribe1 subscribe1 subscribe1 subscribe1 subscribe1');
-		// 	socket.send('subscribe4');
-		// };
-		// socket.onmessage = (e) => {
-		// 	// Data returned is a string so...
-		// 	// console.log(e.data);
-		// 	receivedArr = [e.data, ...receivedArr];
-		// };
+	onMount(() => {
 	});
 
     const connectToServer = () => {
         socket = new WebSocket(url);
-        socket.onopen = (ev) => {
+        socket.onopen = () => {
             socket.send('subscribe');
             socketStatus = "Connected";
         };
 
-        socket.onerror = (ev) => {
+        socket.onerror = () => {
             socketStatus = "Error";
         }
 
@@ -48,6 +37,9 @@
     }
 
     const sendMessageToServer = () => {
+		if (userMessage.length === 0) {
+			return;
+		}
         socket.send(userMessage);
         userMessage = "";
     }

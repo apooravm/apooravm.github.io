@@ -25,13 +25,13 @@ export const POST: RequestHandler = async ({ request }) => {
 const getURLData = async (url: string) => {
 	const urlHTML: string = await getHTML(url);
 	const $: cheerio.CheerioAPI = cheerio.load(urlHTML);
-    const $a = $('a').toArray();
+	const $a = $('a').toArray();
 
-    const final = $a.map((a_tag) => {
-        return a_tag.attribs.href
-    })
+	const final = $a.map((a_tag) => {
+		return a_tag.attribs.href
+	})
 
-    console.log($a);
+	console.log($a);
 
 	return final;
 };
