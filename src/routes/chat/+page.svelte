@@ -3,6 +3,7 @@
 	let username = '';
 	const password = '1234';
     let connectToServer = false;
+	const username_key = "tchat_username";
 
 	interface Message {
 		Id: number;
@@ -109,11 +110,23 @@
 		};
 	};
 
+	const checkUsernameExists = () => {
+		const name = username_key + "=";
+		const decodedCookie = decodeURIComponent(document.cookie);
+		const cookieArray = decodedCookie.split(';');
+		console.log(cookieArray);
+	}
+
     const initChatSocket = () => {
         if (username.length === 0) {
             return;
         }
         username = username.trim();
+		const d = new Date();
+		d.setTime(d.getTime() + (10*20*60*60*1000));
+		const expires = "expires" + d.toUTCString();
+		document.cookie = username_key + "=" + value + ";" + expires + ";path=/chat";
+		checkUsernameExists();
         connectToServer = true;
         chatBusiness();
     }
