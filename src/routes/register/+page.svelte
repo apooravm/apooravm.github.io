@@ -22,6 +22,8 @@
 			return;
 		}
 
+		reqStatus = -1;
+
 		fetch('https://multi-serve.onrender.com/api/user/register', {
 			method: 'POST',
 			body: JSON.stringify(payload),
@@ -50,6 +52,12 @@
             <input class="rounded-sm px-2 py-1 text-gray-900 tracking-wide" autocomplete="off" type="email" bind:value={email} placeholder="email">
             <input class="rounded-sm px-2 py-1 text-gray-900 tracking-wide" autocomplete="off" type="password" bind:value={password} placeholder="password">
             <button class="border-[1px] border-gray-200 rounded-sm py-1 tracking-wide hover:bg-neutral-700 hover:bg-opacity-70" on:click={submitForm}>register</button>
+        </div>
+	{/if}
+
+	{#if reqStatus === -1}
+        <div class="text-xl tracking-wide">
+            Working...
         </div>
 	{/if}
 
