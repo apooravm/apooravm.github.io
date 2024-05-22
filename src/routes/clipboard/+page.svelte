@@ -22,7 +22,8 @@
 				}
 
 				requestOngoing = false;
-				userText = ""
+				userText = "";
+				fetchData();
 				// res.json()
 				// 	.then(data => console.log(data))
 				// 	.catch(err => console.log(err))
@@ -30,7 +31,7 @@
 			.catch(err => errorStr = "Error sending request."+err)
 	}
 
-	onMount(() => {
+	const fetchData = () => {
 		fetch("https://multi-serve.onrender.com/api/clipboard")
 			.then(data => {
 				data.json()
@@ -40,6 +41,10 @@
 			.catch(err => {
 				errorStr = "Error fetching. "+err
 		})
+	}
+
+	onMount(() => {
+		fetchData()
 	})
 </script>
 
