@@ -27,6 +27,10 @@
             title: "threlte",
             link: "/threlte",
         },
+        {
+            title: "clipboard",
+            link: "/clipboard",
+        },
     ]
 
     const contactLinks = [
