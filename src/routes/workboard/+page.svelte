@@ -1,5 +1,9 @@
 <script>
-    
+    import { onMount } from "svelte";
+
+    onMount(() => {
+        // window.MouseEvent.
+    })
 </script>
 
 <div class="bg-white h-full relative">
