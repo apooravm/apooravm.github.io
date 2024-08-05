@@ -16,5 +16,5 @@
 </script>
 
 <div class="">
-	<input type="file" }/>
+	<input type="file" />
 </div>
