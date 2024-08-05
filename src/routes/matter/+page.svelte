@@ -77,7 +77,7 @@
 			mConstraint
 		]
 
-        for (let i = 0; i < 100; i++) {
+        for (let i = 0; i < 400; i++) {
             let randW = Math.floor((Math.random()*canvasElm.clientWidth));
             let randH = Math.floor((Math.random()*canvasElm.clientHeight));
             
@@ -93,4 +93,4 @@
 	});
 </script>
 
-<div class="w-w-1/2 border-2 border-red-500 flex justify-center h-full" id="bruh" />
+<div class="w-w-1/2 flex justify-center h-full" id="bruh" />

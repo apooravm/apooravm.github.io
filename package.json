@@ -1,6 +1,6 @@
 {
 	"name": "apooravm-webapp",
-    "author": "Apoorav Medal",
+	"author": "Apoorav Medal",
 	"version": "0.1.2",
 	"private": true,
 	"scripts": {

@@ -8,7 +8,7 @@
 
 	let url = 'wss://multi-serve.onrender.com/api/ws/echo';
     let userMessage = '';
-	const url2 = 'ws://localhost:4000/api/ws/echo';
+	// const url2 = 'ws://localhost:4000/api/ws/echo';
 
 	onMount(() => {
 	});
