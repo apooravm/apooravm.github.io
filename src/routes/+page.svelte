@@ -66,7 +66,7 @@
 				<span class="font-thin sm:text-6xl text-2xl"
 					><span class="font-semibold">Apoorav</span> Medal</span
 				>
-				<span class="font-thin sm:text-base text-xs">fullstack / devops (kinda)</span>
+				<!-- <span class="font-thin sm:text-base text-xs">fullstack / devops (kinda)</span> -->
 			</div>
 			<div class="flex flex-col sm:text-base text-sm">
 				<span>contact</span>
